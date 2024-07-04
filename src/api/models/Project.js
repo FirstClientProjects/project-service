@@ -7,18 +7,20 @@ const ProjectSchema = new mongoose.Schema({
     },
     organization: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Organization'
+        ref: 'Organization',
+        required: true
     },
     client: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Client'
+        ref: 'Client',
+        required: true
     },
     description: {
         type: String,
         required: true
     },
     website: {
-        type: string,
+        type: String,
         required: true
     },
     repositoryLink: {
@@ -27,7 +29,8 @@ const ProjectSchema = new mongoose.Schema({
     status: {
         type: String,
         enum: ['Not Started', 'In Progress', 'Completed', 'On Hold', 'Finished'],
-        default: 'Not Started'
+        default: 'Not Started',
+        required: true
     },
     startDate: {
         type: Date,
